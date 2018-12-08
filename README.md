@@ -6,9 +6,9 @@
 
 可以在爬虫过程中洞见 https://vjudge.net 的部分业务逻辑.
 
-开发过程:
+开发细节:
 
-https://blog.csdn.net/joovo
+https://blog.csdn.net/Joovo/article/details/84901503
 
 # 怎样使用
 
@@ -27,7 +27,7 @@ As the contest administrator, can crawl all of  the contest  participants' code 
 The code can download all of code signed 'Wrong Answer' and brief information of status.Simple modifications can be used to crawl other details such as length,runtime,etc.
 
 More details in my blog:
-https://blog.csdn.net/joovo
+https://blog.csdn.net/Joovo/article/details/84901503
 
 # How to Use
 
