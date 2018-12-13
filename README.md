@@ -17,12 +17,12 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 2. 修改 login 函数中的用户名密码为要登陆的管理员相关信息
 
-3. '~/save/$ python3 vjudge'
+3. `~/save/$ python3 vjudge`
 -----------------------
 
 # Description
 
-As the contest administrator, can crawl all of  the contest  participants' code and the status.
+Crawl all of  the contest  participants' code and the status as a contest administrator .
 
 The code can download all of code signed 'Wrong Answer' and brief information of status.Simple modifications can be used to crawl other details such as length,runtime,etc.
 
@@ -35,4 +35,4 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 2. Modify the 'username' and 'password' in the 'login' function to the administrator's information.
 
-3. '~/save/$ python3 vjudge'
+3. `~/save/$ python3 vjudge`
