@@ -1,6 +1,7 @@
 import requests
 import json
 import pandas as pd
+import os
 
 url = "https://vjudge.net/status/data/"
 sess=requests.Session()
@@ -150,8 +151,8 @@ def login():
         'x-requested-with': "XMLHttpRequest",
     }
     data={
-        'username': 'ChangeToYourUsername',
-        'password': 'ChangeToYourPassword'
+        'username': '****',
+        'password': '****'
     }
     response=sess.request('POST',url=url,headers=header,data=data)
 
@@ -183,11 +184,14 @@ def download_code(contestId,runId,num):
 
 
 if __name__ == '__main__':
-    contestId = '260752'
+    contestId = '265203'
     login()
     all_df = pd.DataFrame(columns=['题目来源', '题目类型', '题目网址', '代码编号', '错误大类', '错误行数', '错误代码', '错误标注'])
-    for _num in range(ord('A'), ord('K')): # problem arange
-        num = chr(_num)
+    for _num in range(ord('A'), ord('I')): # problem arange
+        num=chr(_num)
+        save_path='./'+num
+        if not os.path.isdir(save_path):
+            os.mkdir(num)
         for s in range(0, 500, 20): # participant arange
             start = s
             length = 20
