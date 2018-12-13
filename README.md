@@ -17,7 +17,7 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 2. 修改 login 函数中的用户名密码为要登陆的管理员相关信息
 
-3. `~/save/$ python3 vjudge`
+3. `~/save/$ python3 vjudge.py`
 -----------------------
 
 # Description
@@ -35,4 +35,4 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 2. Modify the 'username' and 'password' in the 'login' function to the administrator's information.
 
-3. `~/save/$ python3 vjudge`
+3. `~/save/$ python3 vjudge.py`
