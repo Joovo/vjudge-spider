@@ -1,3 +1,4 @@
+坑还未填满
 # 简介
 
 以比赛管理员身份爬取该管理员组织的比赛下所有参与人员的代码和榜单情况.
@@ -12,12 +13,11 @@ https://blog.csdn.net/joovo
 
 # 怎样使用
 
-1.手动或用代码创建不同的文件夹
+1. 修改主函数中的 contestId 为要爬取的题目编号
 
-2.修改主函数中的 contestId 为要爬取的题目编号
+2. 修改 login 函数中的用户名密码为要登陆的管理员相关信息
 
-3.修改 login 函数中的用户名密码为要登陆的管理员相关信息
-
+3. '~/save/$ python3 vjudge'
 -----------------------
 
 # Description
@@ -31,9 +31,8 @@ https://blog.csdn.net/joovo
 
 # How to Use
 
-1.Create different folders manually or with code
+1. Modify the 'contestId' string in the main function to the contest number to be crawled.
 
-2.Modify the 'contestId' string in the main function to the contest number to be crawled.
+2. Modify the 'username' and 'password' in the 'login' function to the administrator's information.
 
-3.Modify the 'username' and 'password' in the 'login' function to the administrator's information.
-
+3. '~/save/$ python3 vjudge'
