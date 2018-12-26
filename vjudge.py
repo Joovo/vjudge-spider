@@ -133,7 +133,7 @@ def parse(data, df, num,contestId):
         download_code(contestId,line['runId'],num)
     return df
 
-def login():
+def login(username,password):
     url='https://vjudge.net/user/login'
     header={
         'authority': 'vjudge.net',
@@ -152,8 +152,8 @@ def login():
         'x-requested-with': "XMLHttpRequest",
     }
     data={
-        'username': 'KidsXH',
-        'password': '52w07z19'
+        'username': username,
+        'password': password
     }
     response=sess.request('POST',url=url,headers=header,data=data)
 
@@ -187,18 +187,23 @@ def download_code(contestId,runId,num):
 def problem_num(contestId):
     response=sess.get('https://vjudge.net/contest/'+contestId)
     tree=etree.HTML(response.text)
-    problem_xpath='//*[@id="contest-problems"]/tbody/tr'
+    problem_xpath='//*[@id="contest-problems"]/tbody/tr/td[4]/a/text()'
+    #*[@id="contest-problems"]/tbody/tr[1]/td[4]/a
     problem=tree.xpath(problem_xpath)
-    #print(len(problem))
+    problem=[chr(i+ord('A'))+' - '+ problem[i].strip() for i in range(len(problem))]
     return len(problem)
     
     
 
 if __name__ == '__main__':
-    print('输出爬取的题号：')
+    print('输入爬取的比赛编号(contestId)：')
     contestId=input('-->')
+    print('输入账号：')
+    username=input('-->')
+    print('输入密码：')
+    password=input('-->')
     # 260752
-    login()
+    login(username,password)
     problem_list=[chr(i+ord('A')) for i in range(problem_num(contestId))]
     all_df = pd.DataFrame(columns=['题目来源', '题目类型', '题目网址', '代码编号', '错误大类', '错误行数', '错误代码', '错误标注'])
     for num in problem_list: # problem arange
