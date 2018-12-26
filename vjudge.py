@@ -2,6 +2,7 @@ import requests
 import json
 import pandas as pd
 import os
+from lxml import etree
 
 url = "https://vjudge.net/status/data/"
 sess=requests.Session()
@@ -151,8 +152,8 @@ def login():
         'x-requested-with': "XMLHttpRequest",
     }
     data={
-        'username': '****',
-        'password': '****'
+        'username': 'KidsXH',
+        'password': '52w07z19'
     }
     response=sess.request('POST',url=url,headers=header,data=data)
 
@@ -183,11 +184,24 @@ def download_code(contestId,runId,num):
     file.close()
 
 
+def problem_num(contestId):
+    response=sess.get('https://vjudge.net/contest/'+contestId)
+    tree=etree.HTML(response.text)
+    problem_xpath='//*[@id="contest-problems"]/tbody/tr'
+    problem=tree.xpath(problem_xpath)
+    #print(len(problem))
+    return len(problem)
+    
+    
+
 if __name__ == '__main__':
-    contestId = '265203'
+    print('输出爬取的题号：')
+    contestId=input('-->')
+    # 260752
     login()
+    problem_list=[chr(i+ord('A')) for i in range(problem_num(contestId))]
     all_df = pd.DataFrame(columns=['题目来源', '题目类型', '题目网址', '代码编号', '错误大类', '错误行数', '错误代码', '错误标注'])
-    for _num in range(ord('A'), ord('I')): # problem arange
+    for _num in problem_list: # problem arange
         num=chr(_num)
         save_path='./'+num
         if not os.path.isdir(save_path):

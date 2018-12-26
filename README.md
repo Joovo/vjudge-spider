@@ -1,4 +1,8 @@
-坑还未填满
+
+2018-12-26 
+更新了交互模式来输入比赛编号
+更新了自动读取题目数量,不需要手动调整
+----------------------------
 # 简介
 
 以比赛管理员身份爬取该管理员组织的比赛下所有参与人员的代码和榜单情况.
@@ -17,7 +21,7 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 2. 修改 login 函数中的用户名密码为要登陆的管理员相关信息
 
-3. '~/save/$ python3 vjudge'
+3. '~/save/$ python3 vjudge.py'
 -----------------------
 
 # Description
@@ -35,4 +39,4 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 2. Modify the 'username' and 'password' in the 'login' function to the administrator's information.
 
-3. '~/save/$ python3 vjudge'
+3. '~/save/$ python3 vjudge.py'
