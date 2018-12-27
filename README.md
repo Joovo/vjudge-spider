@@ -1,5 +1,5 @@
 
-2018-12-26 
+2018-12-27 
 
 更新了交互模式来输入比赛编号
 
@@ -21,11 +21,11 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 # 怎样使用
 
-1. 修改主函数中的 contestId 为要爬取的题目编号
+1. '~/save/$ python3 vjudge.py'
 
-2. 修改 login 函数中的用户名密码为要登陆的管理员相关信息
+2. 根据提示输入比赛编号，账号密码
 
-3. '~/save/$ python3 vjudge.py'
+
 
 -----------------------
 
@@ -40,8 +40,7 @@ https://blog.csdn.net/Joovo/article/details/84901503
 
 # How to Use
 
-1. Modify the 'contestId' string in the main function to the contest number to be crawled.
+1. '~/save/$ python3 vjudge.py'
 
-2. Modify the 'username' and 'password' in the 'login' function to the administrator's information.
+2. Enter the contestId , username and password according to the prompt
 
-3. '~/save/$ python3 vjudge.py'
