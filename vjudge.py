@@ -184,14 +184,14 @@ def download_code(contestId,runId,num):
     file.close()
 
 
-def problem_num(contestId):
+def get_problem_list(contestId):
     response=sess.get('https://vjudge.net/contest/'+contestId)
     tree=etree.HTML(response.text)
     problem_xpath='//*[@id="contest-problems"]/tbody/tr/td[4]/a/text()'
     #*[@id="contest-problems"]/tbody/tr[1]/td[4]/a
     problem=tree.xpath(problem_xpath)
     problem=[chr(i+ord('A'))+' - '+ problem[i].strip() for i in range(len(problem))]
-    return len(problem)
+    return problem
     
     
 
@@ -204,7 +204,8 @@ if __name__ == '__main__':
     password=input('-->')
     # 260752
     login(username,password)
-    problem_list=[chr(i+ord('A')) for i in range(problem_num(contestId))]
+    problem_list=get_problem_list(contestId)
+    problem_list=[chr(i+ord('A')) for i in range(len(problem_list))]
     all_df = pd.DataFrame(columns=['题目来源', '题目类型', '题目网址', '代码编号', '错误大类', '错误行数', '错误代码', '错误标注'])
     for num in problem_list: # problem arange
         save_path='./'+num
@@ -221,4 +222,5 @@ if __name__ == '__main__':
             df = parse(data, df, num,contestId)
             all_df = pd.concat([all_df, df], axis=0)
     all_df.to_csv('标注.csv', index=False)
-
+    for i in problem_list:
+        os.rename(i[0],i)
